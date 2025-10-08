@@ -169,11 +169,5 @@ The API follows RESTful principles and is versioned (v1). Main endpoints include
 - `/api/v1/users` - User management
 - `/api/v1/reviews` - Review management
 
-## 👤 Author
-
-Samriddhi
-
----
-
 Built with ❤️ using Node.js and Express
 
