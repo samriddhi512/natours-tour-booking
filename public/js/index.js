@@ -1,5 +1,8 @@
 import { login, logout } from './login';
 import { updateSettings } from './updateSettings';
+import { bookTour } from './booking';
+import { displayMap } from './leaflet';
+import { submitReview, deleteReview } from './review';
 
 // Get locations from the map element's dataset and initialize the map
 
@@ -9,6 +12,8 @@ const loginForm = document.querySelector('.form--login');
 const logOutBtn = document.querySelector('.nav__el--logout');
 const userDataForm = document.querySelector('.form-user-data');
 const userPasswordForm = document.querySelector('.form-user-password');
+const bookBtn = document.getElementById('book-tour');
+const reviewForm = document.getElementById('review-form');
 
 if (mapElement && mapElement.dataset.locations) {
   const locations = JSON.parse(mapElement.dataset.locations);
@@ -55,3 +60,41 @@ if (userPasswordForm) {
 }
 
 if (logOutBtn) logOutBtn.addEventListener('click', logout);
+
+if (bookBtn) {
+  bookBtn.addEventListener('click', (e) => {
+    e.target.textContent = 'Processing...';
+    const { tourId } = e.target.dataset;
+    bookTour(tourId);
+  });
+}
+
+if (reviewForm) {
+  reviewForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const { tourId } = reviewForm.dataset;
+    const review = document.getElementById('review').value;
+    const ratingSelect = document.getElementById('rating');
+    
+    if (!ratingSelect || !ratingSelect.value) {
+      alert('Please select a rating');
+      return;
+    }
+    
+    const rating = ratingSelect.value;
+    submitReview(tourId, review, rating);
+  });
+}
+
+// Delete review buttons
+const deleteReviewBtns = document.querySelectorAll('.btn-delete-review');
+if (deleteReviewBtns) {
+  deleteReviewBtns.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      const { reviewId } = e.target.dataset;
+      if (confirm('Are you sure you want to delete this review?')) {
+        deleteReview(reviewId);
+      }
+    });
+  });
+}

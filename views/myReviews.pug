@@ -1,0 +1,24 @@
+extends base
+
+block content
+  main.main
+    .my-reviews
+      if reviews.length
+        each review in reviews
+          .my-reviews__card
+            img.my-reviews__tour-img(src=`/img/tours/${review.tour.imageCover}`, alt=`${review.tour.name}`)
+            .my-reviews__content
+              h3.my-reviews__tour-name= review.tour.name
+              p.my-reviews__text= review.review
+              .my-reviews__rating
+                each star in [1, 2, 3, 4, 5]
+                  svg.my-reviews__star(class=`my-reviews__star--${review.rating >= star ? 'active' : 'inactive'}`)
+                    use(xlink:href='/img/icons.svg#icon-star')
+              .my-reviews__actions
+                a.btn.btn--small.btn--green(href=`/tour/${review.tour.slug}`) View Tour
+                button.btn.btn--small.btn--small-danger.btn-delete-review(data-review-id=`${review.id}`) Delete
+      else
+        .login-form
+          h2.heading-secondary.ma-bt-lg No reviews yet!
+          p.ma-bt-lg You haven't written any reviews yet. Book a tour and share your experience!
+          a.btn.btn--green(href='/') Browse Tours

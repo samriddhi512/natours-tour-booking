@@ -1322,3 +1322,120 @@ body {
   -webkit-transform: translateY(-2px);
   transform: translateY(-2px);
 }
+
+/* Review Form Styles */
+.reviews__form {
+  max-width: 50rem;
+  margin: 0 auto;
+  padding: 4rem;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.1);
+}
+
+.form--review textarea {
+  resize: vertical;
+  min-height: 10rem;
+}
+
+.form__rating {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.form__rating-input {
+  display: none;
+}
+
+.form__rating-label {
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.form__rating-icon {
+  height: 3rem;
+  width: 3rem;
+  fill: #bbb;
+  transition: all 0.2s;
+}
+
+.form__rating-input:checked ~ .form__rating-label .form__rating-icon,
+.form__rating-label:hover .form__rating-icon,
+.form__rating-label:hover ~ .form__rating-label .form__rating-icon {
+  fill: #55c57a;
+}
+
+/* My Reviews Page */
+.my-reviews {
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.my-reviews__card {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.my-reviews__tour-img {
+  width: 15rem;
+  height: 10rem;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.my-reviews__content {
+  flex: 1;
+}
+
+.my-reviews__tour-name {
+  font-size: 1.8rem;
+  color: #55c57a;
+  margin-bottom: 1rem;
+}
+
+.my-reviews__text {
+  font-size: 1.5rem;
+  color: #777;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.my-reviews__rating {
+  display: flex;
+  gap: 0.3rem;
+  margin-bottom: 1rem;
+}
+
+.my-reviews__star {
+  height: 2rem;
+  width: 2rem;
+}
+
+.my-reviews__star--active {
+  fill: #55c57a;
+}
+
+.my-reviews__star--inactive {
+  fill: #bbb;
+}
+
+.my-reviews__actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn--small-danger {
+  background-color: #ff7730;
+}
+
+.btn--small-danger:hover {
+  background-color: #eb711a;
+}

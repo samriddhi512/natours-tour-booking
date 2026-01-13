@@ -74,6 +74,26 @@ block content
       each review in tour.reviews
         +reviewCard(review)
 
+  if user
+    section.section-reviews
+      .reviews__form
+        h2.heading-secondary.ma-bt-lg Write a Review
+        form.form.form--review#review-form(data-tour-id=`${tour.id}`)
+          .form__group
+            label.form__label(for='rating') Your Rating
+            select#rating.form__input(name='rating', required)
+              option(value='') Select a rating
+              option(value='5') ⭐⭐⭐⭐⭐ (5 - Excellent)
+              option(value='4') ⭐⭐⭐⭐ (4 - Great)
+              option(value='3') ⭐⭐⭐ (3 - Good)
+              option(value='2') ⭐⭐ (2 - Fair)
+              option(value='1') ⭐ (1 - Poor)
+          .form__group.ma-bt-md
+            label.form__label(for='review') Your Review
+            textarea#review.form__input(placeholder='Share your experience...', rows='4', required)
+          .form__group
+            button.btn.btn--green Submit Review
+
   section.section-cta
     .cta
       .cta__img.cta__img--logo
@@ -83,4 +103,7 @@ block content
       .cta__content
         h2.heading-secondary What are you waiting for?
         p.cta__text #{tour.duration} days. 1 adventure. Infinite memories. Make it yours today!
-        button.btn.btn--green.span-all-rows Book tour now!
+        if user
+          button.btn.btn--green.span-all-rows#book-tour(data-tour-id=`${tour.id}`) Book tour now!
+        else
+          a.btn.btn--green.span-all-rows(href='/login') Log in to book tour

@@ -27,7 +27,7 @@ const insertData = async function () {
     const reviews = JSON.parse(
       fs.readFileSync(`${__dirname}/reviews.json`, 'utf-8'),
     );
-    await User.insertMany(users, { validate: false });
+    await User.collection.insertMany(users);
     await Tour.create(tours);
     await Review.insertMany(reviews);
 

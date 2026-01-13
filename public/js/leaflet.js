@@ -1,5 +1,5 @@
 /* eslint-disable */
-const displayMap = locations => {
+export const displayMap = locations => {
   // Initialize the map with initial view
   const map = L.map('map', {
     scrollWheelZoom: false
