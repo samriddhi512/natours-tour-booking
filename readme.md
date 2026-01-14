@@ -2,6 +2,14 @@
 
 A full-stack tour booking application built with Node.js, Express, MongoDB, and modern web technologies. This application allows users to browse, book, and review tours while providing tour operators with a robust management system.
 
+---
+A full-stack tour booking application built with Node.js, Express, MongoDB, and modern web technologies. This application allows users to browse, book, and review tours while providing tour operators with a robust management system.
+
+## 🎥 DEMO (CLICK TO WATCH)
+👉👉👉 **[WATCH THE DEMO VIDEO](https://drive.google.com/file/d/1ttpg9dLC29cGcnXl--E-7YC4BpN3x7RU/view?usp=drive_link)**
+
+---
+
 ## 🚀 Features
 
 - **User Authentication & Authorization**
